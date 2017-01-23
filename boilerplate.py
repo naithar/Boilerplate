@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-def help(parameters): # help for scrypt
+def help(parameters = None): # help for scrypt
     print 'python boilderplate scrypt'
     print 'help for {0}'.format(parameters)
 
@@ -24,6 +24,10 @@ def run(filename, toFilename, parameters = None): # perform file formatting
         new.write(newString)
         new.close()
 
+def parse(arguments):
+    print 'parsing {0}'.format(arguments)
+    return {}
+
 def main(args):
     print __name__
     print args
@@ -34,8 +38,14 @@ def main(args):
     elif '-h' in args:
         args.remove('-h')
         help(args)
-
-
+    elif args[0] == 'run':
+        filename = args[1] #should contain .bp new file name drops .bp
+        newFilename = ''
+        parameters = parse(args[2:]) # -p, --parameters
+        run(filename, newFilename, parameters)
+    else:
+        print 'Can not parse commandline'
+        help()
 
 if __name__ == '__main__':
     import sys
