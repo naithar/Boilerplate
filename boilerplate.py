@@ -2,10 +2,10 @@
 
 
 
-def help():
-    print 'python boilderplace scrypt'
+def help(): # help for scrypt
+    print 'python boilderplate scrypt'
 
-def run(filename, toFilename, parameters):
+def run(filename, toFilename, parameters): # perform file formatting
     string = ''
     with open(filename, "r") as original:
         string = original.read()
