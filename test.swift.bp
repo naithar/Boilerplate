@@ -1,0 +1,6 @@
+import Foundation
+
+func foo(a: {Type}?) {{
+}}
+
+foo(0 as? {Type})
