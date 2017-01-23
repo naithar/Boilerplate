@@ -1,11 +1,10 @@
 #!/usr/bin/python
 
-
-
-def help(): # help for scrypt
+def help(parameters): # help for scrypt
     print 'python boilderplate scrypt'
+    print 'help for {0}'.format(parameters)
 
-def run(filename, toFilename, parameters): # perform file formatting
+def run(filename, toFilename, parameters = None): # perform file formatting
     string = ''
     with open(filename, "r") as original:
         string = original.read()
@@ -28,6 +27,14 @@ def run(filename, toFilename, parameters): # perform file formatting
 def main(args):
     print __name__
     print args
+
+    if '--help' in args:
+        args.remove('--help')
+        help(args)
+    elif '-h' in args:
+        args.remove('-h')
+        help(args)
+
 
 
 if __name__ == '__main__':
